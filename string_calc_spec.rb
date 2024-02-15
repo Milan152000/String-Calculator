@@ -17,5 +17,12 @@ RSpec.describe StringCalc do
         expect(StringCalc.add("3, 4, 6, 10")).to eq(23)
       end
     end
+
+    context "when string with more than 2 numbers with multiple delimiters is passed" do
+      it "returns the sum of all numbers" do
+        expect(StringCalc.add("1, 2; 3\n 5")).to eq(11)
+        expect(StringCalc.add("3\n4, 6; 10")).to eq(23)
+      end
+    end
   end
 end
