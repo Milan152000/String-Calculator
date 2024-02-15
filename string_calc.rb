@@ -7,8 +7,9 @@ class StringCalc
       delimiter = /[,\n; ]/        # Given the delimiters as space, comma, semi colon, and new line
       regex = /\s*-?\d+\s*/         # Regex to match the number inside the string
 
-      string_arr = string.split(delimiter)        # This will split the string with multiple delimiters
-      string_arr = string_arr.map {|x| x.match(regex)}.compact        # Match the numbers and removes nil elements
+      # This will split the string with multiple delimiters and match the numbers and removes nil elements
+      string_arr = string.split(delimiter).map {|x| x.match(regex)}.compact
+      
       string_arr = string_arr.map {|y| y[0].to_i}         # Maps each element to integer
       numbers = string_arr.map(&:to_i)        # Convert the array of strings to an array of integers
 
